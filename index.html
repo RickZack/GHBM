@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Communication-Efficient Federated Learning with Generalized Heavy-Ball Momentum">
+  <meta name="keywords" content="Federated Learning, FL, momentum, client drift">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Communication-Efficient Federated Learning with Generalized Heavy-Ball Momentum</title>
+    <!-- Bootstrap -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-66HSRW52BL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-66HSRW52BL');
+    </script>
+
+    <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/index_mg.css">
+
+  <link rel="icon" href="./static/images/logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script_mg.js"></script>
+
+  <!-- This is to render Math In TeX language -->
+  <script type="text/javascript" src="./static/js/LaTeXMathML.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop" style = 'max-width:1080px'>
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <img src="static/images/logo.png" alt="Paper Logo" class="paper-logo">
+          <div class="title-container">
+          <h1 class="title is-1 publication-title">Communication-Efficient Federated Learning with Generalized Heavy-Ball Momentum</h1>
+          </div>
+          <div class="is-size-5 publication-authors">
+          <h2 class="subtitle is-3">TMLR 2025</h2>
+        <span class="author-block">
+          <a href="https://scholar.google.it/citations?user=7gyywFsAAAAJ&hl=en">Riccardo Zaccone</a><sup>1</sup>,</span>
+        <span class="author-block">
+          <a href="https://scholar.google.com/citations?user=wKJeOQoAAAAJ&hl=en">Sai Praneeth Karimireddy</a><sup>2</sup>,</span>
+        <span class="author-block">
+          <a href="https://scholar.google.com/citations?user=cM3Iz_4AAAAJ&hl=en">Carlo Masone</a><sup>1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://scholar.google.it/citations?user=hOQjblcAAAAJ&hl=en">Marco Ciccone</a><sup>3</sup>,
+        </span>
+      </div>
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Politecnico di Torino,</span>
+            <span class="author-block"><sup>2</sup>USC Viterbi School of Engineering</span>
+             <span class="author-block"><sup>3</sup>Vector Institute</span>
+          </div>
+    <div class="is-size-5 publication-authors">
+    <span class="author-block">
+    <small><tt>riccardo.zaccone@polito.it</tt></small>
+
+    </span>
+    </div>
+          <div class="column has-text-centered">
+                <span class="link-block">
+                    <a href="https://openreview.net/pdf?id=LNoFjcLywb" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                    </a>
+                </span>
+              <span class="link-block">
+                <a href=https://arxiv.org/abs/2311.18578
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+            <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark coming-soon">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                </a>
+            </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/RickZack/GHBM"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+    <div class="hero-body" style="padding-inline: 4vh">
+      <video id="teaser" autoplay muted loop playsinline style="width: 100%; height: auto;">
+        <source src="./static/videos/video_four.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+      </h2>
+    </div>
+</section> -->
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">About this work</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work, we propose FL algorithms based on a novel <i>Generalized Heavy-Ball Momentum</i> (</b>GHBM</b>) formulation designed to overcome the limitation of classical momentum in FL w.r.t. heterogeneous local distributions and partial participation. <br><br>
+            💪 <b>GHBM is theoretically unaffected by client heterogeneity:​</b> it is proven to converge in (cyclic) partial participation as other momentum-based FL algorithms do in <i>full participation</i>. <br>
+            💡 <b>GHBM is easy to implement:</b>  it is based on the key modification to make momentum effective in heterogeneous FL with partial participation. Indeed, GHBM with $\tau=1$ is equivalent to classical momentum <br>
+            🧠 <b>GHBM is very flexible:</b> in GHBM clients are <i>stateless</i>, enabling its use in cross-device scenarios, at the expense of $1.5\times$ overhead w.r.t FedAvg. In cases when the participation is not critical (e.g. $\geq10%$), we provide even more communication-effients variants that exploit periodic participation and local state to recover the same communication complexity as FedAvg! <br>
+            🏆 <b>GHBM substantially improves the state-of-art:</b> extensive experimentation on </b>large-scale settings</b> with high data heterogeneity and low client participation shows that <b>GHBM and its variants reach much better final model quality</b> and  <b>higher convergence speed</b>.  <br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Abstract. -->
+
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Theoretical Results</h2>
+        <img src="./static/images/theory_plot.png" style="float: right" width="250">
+        <div class="content has-text-justified">
+          <p>
+            In the paper we formally prove that GHBM converges under <i>(cyclic) partial participation</i> as other momentum-based FL methods (e.g. FedCM) do in <i>full participation</i>. 
+            In particular, under the conditions of of Thm 4.11: <b>(i)</b> GHBM is not affected by statistical heterogeneity and <b>(ii)</b> has a better dependency on the stochastic noise, 
+            which scales with the entire client population, instead of the number of clients selected in a single round.  <br><br>
+
+            In the paper we report a simple experiment to corroborate the theoretical findings, in which we compare the convergence of FedCM and FedAvg in (cyclic) partial participation 
+            ($C=0.2$) with GHBM, and also add FedCM in full participation ($C=1$) as a reference. As it is possible to see in the plot below, the curve of GHBM with $\tau=1/C$ as prescribed 
+            by Thm. 4.11 approaches the one of FedCM in full participation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experimental Results</h2>
+        <div class="content has-text-justified">
+          <p>
+           In section 5 of the paper, we show that: <b>(i)</b> the GHBM formulation is pivotal to enable momentum to provide an effective correction 
+           even in extreme heterogeneity, <b>(ii)</b> our adaptive LocalGHBM effectively exploits client participation to enhance communication efficiency 
+           and <b>(iii)</b> GHBM is suitable for cross-device scenarios, with stark improvement on large datasets and architectures. <b>All the experiments 
+           are conducted under random uniform client sampling</b>, as it is standard practice.
+          </p>
+        </div>
+
+        <h3 class="title is-4">Controlled scenario with extreme heterogeneity</h3>
+        <div class="content has-text-justified">
+          <p>
+            We provide evidence of the effectiveness of GHBM under worst-case heterogeneity (<i>i.e.</i> $\alpha=0$) by comparing the impact of our generalized 
+            heavy-ball momentum formulation to the classical momentum approach, which corresponds to selecting $\tau>1$ in the update rule of GHBM. 
+            As shown in Figure 3, prior momentum-based methods fail to improve upon FedAvg. In contrast, as $\tau$ increases, GHBM exhibits a significant 
+            enhancement in both convergence speed and final model quality. The optimal value of $\tau$ is experimentally determined to be $\tau \approx 1/C=10$, 
+            with larger sub-optimal values only slightly affecting performance (rightmost plot).
+
+            This experiment demonstrates that, while complete heterogeneity reduction is theoretically proven only under cyclic participation 
+            (<i>i.e.</i> Thm. 4.11 holds under cyclic participation assumption), GHBM empirically achieves strong heterogeneity reduction even with 
+            random uniform client sampling. In particular, the theoretical prescription on the optimal value $\tau=1/C$ also holds in this setting.
+          </p>
+        </div>
+        <img src="./static/images/GHBM_extreme_heterogeneity.png">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero ">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <br><br>
+        <h3 class="title is-4">Comparison with the state-of-the-art | Controlled scenario</h3>
+        <div class="content has-text-justified">
+          <p>
+            Our results in Tab. 2 underscore that methods based on classical momentum fail at improving FedAvg in scenarios with high heterogeneity 
+            and partial participation, confirming that in those cases they should not be expected to provide a significant advantage over heterogeneity.
+            The general ineffectiveness of classical momentum also holds for SCAFFOLD-M: as it is possible to notice, its performance is not significantly 
+            better than SCAFFOLD's, and this well aligns with the theory, where the guarantees against heterogeneity come from the use of control variates, 
+            while momentum only brings acceleration. In that our results align with previous findings in literature suggesting that variance reduction, 
+            besides theoretically strong, is often not effective empirically in deep learning.
+            Conversely, our algorithms outperform the FedAvg with an impressive margin of <b>$+20.6%$</b> and <b>$+14.4%$</b> on ReNet-20 and CNN under 
+            worst-case heterogeneity, and consistently over less severe conditions (higher values of $\alpha$ in Fig. 4).
+          </p>
+        </div>
+        <img src="./static/images/plots_sota_controlled.png">
+        <img src="./static/images/sota_results_controlled.png">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <br><br>
+        <h3 class="title is-4">Comparison with the state-of-the-art | Large-scale scenario</h3>
+        <div class="content has-text-justified">
+          <p>
+            Results in Tab. 3 show a stark improvement over the state-of-art for both our algorithms, indicating that the design principle of 
+            our momentum formulation is remarkably robust and provides effective improvement even when client participation is very low 
+            (<i>e.g.</i> $C\leq 1%$).
+          </p>
+        </div>
+        <img src="./static/images/sota_results_largescale.png">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <br><br>
+        <h3 class="title is-4">Communication and computational complexity</h3>
+        <div class="content has-text-justified">
+          <p>
+            Results in Tab. 4 reveal that our proposed algorithms lead to a dramatic reduction in both communication and computational cost, 
+            with an average saving of  respectively <b>$+55.9%$</b> and <b>$+61.5%$</b>.
+            Our algorithms much show faster convergence and higher final model quality, which ultimately lead to a significant reduction 
+            of the total communication and computational cost. In particular, in settings with extremely low client participation 
+            (<i>e.g.</i> GLDv2 and INaturalist), GHBM is more suitable for best accuracy, while FedHBM is the best at lowering the communication cost.
+          </p>
+        </div>
+        <img src="./static/images/efficiency.png">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light ">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <br><br>
+        <h2 class="title is-3">Conclusions</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work, we propose <i>Generalized Heavy-Ball Momentum</i> (GHBM), a novel momentum-based optimization method for Federated Learning (FL) 
+            that effectively mitigates the joint effect of statistical heterogeneity and partial participation.
+            We theoretically prove that GHBM converges under arbitrary heterogeneity in <i>cyclic partial participation</i>, achieving the same rate 
+            classical momentum enjoys in <i>full participation</i>.
+            Extensive experiments, conducted under standard random uniform client sampling, confirm that GHBM significantly outperforms state-of-the-art 
+            FL methods in both convergence speed and final model quality, demonstrating its robustness in large-scale, real-world heterogeneous FL scenarios.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">How to cite us</h2>
+    <pre><code>
+      @article{zaccone2025communicationefficient,
+      title={Communication-Efficient Heterogeneous Federated Learning with Generalized Heavy-Ball Momentum}, 
+      author={Riccardo Zaccone and Sai Praneeth Karimireddy and Carlo Masone and Marco Ciccone},
+      year={2025},
+      journal={Transactions on Machine Learning Research},
+      url={https://openreview.net/forum?id=LNoFjcLywb}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+<section class="section">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    <p>
+      This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License </a>.
+    </p>
+  </div>
+</section>
+</footer>
+
+</body>
+</html>
