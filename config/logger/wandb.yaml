@@ -1,0 +1,11 @@
+# @package _global_
+logger:
+  type: wandb
+  classname: WandbLogger
+  params:
+    entity: ???
+    project: ???
+    id: ${exp_name}_seed${seed}
+    resume: 'allow'
+    dir: ${savedir}
+    name: ${exp_name}

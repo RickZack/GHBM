@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - fedavg
+
+algo:
+  type: fedcm
+  classname: FedAvg
+  params:
+    center_server:
+      classname: FedCMCenterServer
+    client:
+      classname: FedCMClient
+      args:
+        alpha: 0.1

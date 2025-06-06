@@ -1,0 +1,12 @@
+# @package _global_
+model:
+  type: stackoverflowLSTM
+  classname: StackOverflowLSTM
+  pretraining:
+    weights:
+    load_layers:
+    freeze_layers:
+  input_length: 20
+  embed_size: 96
+  hidden_size: 670
+  args: {}

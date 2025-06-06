@@ -1,0 +1,14 @@
+# @package _global_
+dataset:
+  type: stackoverflow
+  classname: StackOverflow
+  data_splitter:
+    classname: DirichletDataSplitter
+    args:
+      alpha: 0
+      rebalance: True
+      max_iter_rebalance: 100
+  args:
+    root: "./datasets"
+    subsample_test_dim: 10000
+  num_exemplars: 0 # exemplars to extract from test data

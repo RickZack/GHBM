@@ -1,0 +1,7 @@
+# @package _global_
+client_sampler:
+  type: cyclecp
+  classname: CycleCPClientSampler
+  args:
+    num_clients: ${algo.params.common.K}
+    num_groups: 1s

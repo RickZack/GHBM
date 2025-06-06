@@ -1,0 +1,12 @@
+# @package _global_
+model:
+  type: shakespeareLSTM
+  classname: ShakespeareLSTM
+  pretraining:
+    weights:
+    load_layers:
+    freeze_layers:
+  input_length: 80
+  embed_size: 8
+  hidden_size: 100
+  args: {}
