@@ -1,0 +1,5 @@
+# @package _global_
+lr_scheduler:
+  type: nop_scheduler
+  classname: NopScheduler
+  args: {}

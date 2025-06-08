@@ -1,0 +1,14 @@
+# @package _global_
+dataset:
+  type: cifar10
+  classname: CIFAR10
+  args:
+    root: "./datasets"
+    download: True
+  data_splitter:
+    classname: DirichletDataSplitter
+    args:
+      alpha: ${algo.params.common.alpha}
+      rebalance: True
+      max_iter_rebalance: 100
+  num_exemplars: 100 # exemplars to extract from test data

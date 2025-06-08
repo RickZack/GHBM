@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - fedavg
+
+algo:
+  type: fedhbm
+  classname: FedAvg
+  params:
+    mode: 'standard'
+    client:
+      classname: FedHBMClient
+      args:
+        C: ${algo.params.common.C}
+        beta: 1
+        variant: standard
+        nesterov: False

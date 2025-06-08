@@ -1,0 +1,6 @@
+# @package _global_
+lr_scheduler:
+  type: cosine
+  classname: torch.optim.lr_scheduler.CosineAnnealingLR
+  args:
+    T_max: ${n_round}

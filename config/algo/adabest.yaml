@@ -1,0 +1,15 @@
+# @package _global_
+defaults:
+  - fedavg
+
+algo:
+  type: adabest
+  params:
+    center_server:
+      classname: AdaBestCenterServer
+      args:
+        beta: ???
+    client:
+      classname: AdaBestClient
+      args:
+        mu: ???

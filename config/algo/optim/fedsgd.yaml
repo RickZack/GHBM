@@ -1,0 +1,8 @@
+# @package _global_
+optim:
+  type: sgdm
+  classname: FedSGD
+  args:
+    lr: 0.1
+    momentum: 0
+    weight_decay: 1e-4

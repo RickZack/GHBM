@@ -1,0 +1,65 @@
+# @package _global_
+defaults:
+  - lr_scheduler@algo.params.client.args: nop_scheduler
+  - optim@algo.params.client.args: ???
+  - lr_scheduler@algo.params.center_server.args: nop_scheduler
+  - optim@algo.params.center_server.args: ???
+  - loss@algo.params: ???
+  - client_sampler@algo.params: uniform
+
+algo:
+  type: fedbase
+  classname: FedBase
+  params:
+    num_workers: 0
+    iteration_type: epoch
+    common:
+      E: 1
+      K: 100
+      C: 0.1
+      B: 64
+      alpha: 0
+      max_iter_dirichlet: 100
+      rebalance: False
+      client_sampling:
+        distr: uniform
+    center_server:
+      classname: ??? # must be provided by specialized methods
+      args:
+        optim:
+          args:
+            weight_decay: 0
+            momentum: 0
+            lr: 1
+    client:
+      classname: ???
+      args: 
+        temp_store_device: cuda:0
+        clipping_norm: 0
+        lr_step_period: 1
+    aggregation_policy: ??? # weighted or uniform
+    save_models: False
+    clients_dropout: 0
+    analyze_container:
+      modules:
+        controller:
+          - m:
+            classname: CheckpointSaver
+            args:
+              event: checkpoint
+              savedir: ${savedir}
+              filename_format: checkpoint_round{}
+              store_device: cpu #${savedir}/state_round{}
+              last_round: ${n_round}
+              save_period: 1000
+              verbose: False
+        server:
+          - m:
+            classname: ServerAnalyzer
+            args:
+              event: validation
+              val_period: 100
+              total_rounds: ${n_round}
+              val_always_last_rounds: 100
+              verbose: True
+      verbose: False

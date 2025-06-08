@@ -1,0 +1,15 @@
+# @package _global_
+defaults:
+  - fedavg
+
+algo:
+  type: scaffold
+  classname: FedAvg
+  params:
+    center_server:
+      classname: SCAFFOLDCenterServer
+      args: {}
+    client:
+      classname: SCAFFOLDClient
+      args:
+        fullbatch_controls: False

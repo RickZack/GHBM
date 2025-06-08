@@ -1,0 +1,39 @@
+# @package _global_
+defaults:
+  - optim@algo.params: sgd
+  - lr_scheduler@algo.params.warmup: linear
+  - lr_scheduler@algo.params.training: cosine
+  - loss@algo.params: crossentropy
+
+
+algo:
+  type: centralized
+  classname: Centralized
+  params:
+    num_workers: 0
+    batch_size: 64
+    analyze_container:
+      modules:
+        server:
+          - m:
+            classname: ServerAnalyzer
+            args:
+              event: 'validation'
+              val_period: 1
+              total_rounds: ${n_round}
+              val_always_last_rounds: 100
+              verbose: True
+          - m:
+            classname: CheckpointSaver
+            args:
+              event: checkpoint
+              savedir: ${savedir}
+              filename_format: checkpoint_round{}
+              store_device: cpu
+              last_round: ${n_round}
+              save_period: 1
+              verbose: False
+      verbose: False
+    center_server:
+      classname: FedAvgCenterServer
+      args: {}

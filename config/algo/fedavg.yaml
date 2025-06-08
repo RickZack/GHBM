@@ -1,0 +1,26 @@
+# @package _global_
+defaults:
+  - fedbase
+  - override optim@algo.params.client.args: sgd
+  - override optim@algo.params.center_server.args: sgd
+  - override loss@algo.params: crossentropy
+
+algo:
+  type: fedavg
+  classname: FedAvg
+  params:
+    center_server:
+      classname: FedAvgCenterServer
+      args:
+        optim:
+          args:
+            weight_decay: 0
+            momentum: 0
+            lr: 1
+    client:
+      classname: FedAvgClient
+      args:
+          optim:
+            args:
+              momentum: 0
+    aggregation_policy: weighted
