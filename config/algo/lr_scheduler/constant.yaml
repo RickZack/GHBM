@@ -1,0 +1,8 @@
+# @package _global_
+lr_scheduler:
+  type: constant
+  classname: torch.optim.lr_scheduler.LinearLR
+  args:
+    start_factor: 1
+    total_iters: 1
+    verbose: False

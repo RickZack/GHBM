@@ -1,0 +1,27 @@
+# @package _global_
+defaults:
+  - fedavg
+  - override optim@algo.params.client.args: fedsgd
+  - override optim@algo.params.center_server.args: fedsgd
+
+algo:
+  type: mimemom
+  classname: Mime
+  params:
+    mime_lite: False
+    center_server:
+      classname: MimeCenterServer
+      args:
+        optim:
+          args:
+            weight_decay: 0
+            momentum: 0.9
+            lr: 0.1
+    client:
+      classname: MimeClient
+      args:
+        mime_lite: ${algo.params.mime_lite}
+        optim:
+          args:
+            momentum: 0.9
+    aggregation_policy: uniform

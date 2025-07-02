@@ -1,0 +1,15 @@
+# @package _global_
+defaults:
+  - fedavg
+  - override optim@algo.params.center_server.args: sgd
+
+algo:
+  type: fedavgm
+  params:
+    center_server:
+      args:
+        optim:
+          args:
+            weight_decay: 0
+            momentum: 0.9
+            lr: ???

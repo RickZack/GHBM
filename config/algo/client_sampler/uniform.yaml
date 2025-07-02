@@ -1,0 +1,5 @@
+# @package _global_
+client_sampler:
+  type: uniform
+  classname: UniformClientSampler
+  args: {}

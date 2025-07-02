@@ -1,0 +1,11 @@
+# @package _global_
+defaults:
+  - fedavg
+
+algo:
+  type: fedprox
+  params:
+    client:
+      classname: FedProxClient
+      args:
+        mu: ???

@@ -1,0 +1,8 @@
+# @package _global_
+optim:
+  type: lamb
+  classname: Lamb
+  args:
+    lr: 0.001
+    weight_decay: 0.1
+    eps: 1e-8

@@ -1,0 +1,6 @@
+# @package _global_
+logger:
+  type: tensorboard
+  classname: TensorboardLogger
+  params:
+    log_dir: ${savedir}/tf

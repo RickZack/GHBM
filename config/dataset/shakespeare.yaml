@@ -1,0 +1,14 @@
+# @package _global_
+dataset:
+  type: shakespeare
+  classname: Shakespeare
+  data_splitter:
+    classname: DirichletDataSplitter
+    args:
+      alpha: 0
+      rebalance: True
+      max_iter_rebalance: 100
+  args:
+    root: "./datasets"
+    split: iid
+  num_exemplars: 0

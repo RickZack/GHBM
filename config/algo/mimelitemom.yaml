@@ -1,0 +1,9 @@
+# @package _global_
+defaults:
+  - mime
+
+algo:
+  type: mimelitemom
+  classname: Mime
+  params:
+    mime_lite: True
